@@ -161,6 +161,7 @@ MonoBehaviour:
     m_Bits: 128
   uprightInterpSpeed: 20
   currentRope: {fileID: 0}
+  rigidBody: {fileID: 0}
   onRope: 0
   canMove: 0
   deathSFX: {fileID: 8300000, guid: b9bf17bb274cd644a9fc7f79e3442d9d, type: 3}

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(AudioSource))]
 public class PlayerController : MonoBehaviour
 {
     [Header("References")]
@@ -41,7 +40,6 @@ public class PlayerController : MonoBehaviour
 
     public bool canMove;
 
-    AudioSource source;
     public AudioClip deathSFX;
     public List<AudioClip> jumpSFX = new List<AudioClip>();
     public List<AudioClip> landSFX = new List<AudioClip>();
@@ -56,8 +54,6 @@ public class PlayerController : MonoBehaviour
     {
        rigidBody = GetComponent<Rigidbody2D>(); 
        StartCoroutine(EnableMovement());
-
-       source = GetComponent<AudioSource>();
     }
 
     IEnumerator EnableMovement(){
@@ -80,8 +76,7 @@ public class PlayerController : MonoBehaviour
             canJump = false;
             lastJumpTime = Time.time;
 
-            source.clip = jumpSFX[Random.Range(0, jumpSFX.Count)];
-            source.Play();
+            SFXHandler.PlaySound(jumpSFX[Random.Range(0, jumpSFX.Count)]);
         }
 
         if(Input.GetKey(KeyCode.Space) && canJump == false && !onRope && !onGround){
@@ -96,8 +91,7 @@ public class PlayerController : MonoBehaviour
                     gameObject.AddComponent<FixedJoint2D>().connectedBody = rightHit.rigidbody;
                     onRope = true;
                     currentRope = rightHit.collider.transform.parent.GetComponent<Rope>();
-                    source.clip = grabRopeSFX;
-                    source.Play();
+                    SFXHandler.PlaySound(grabRopeSFX);
                 } 
             } else {
                 if(leftHit){
@@ -107,8 +101,7 @@ public class PlayerController : MonoBehaviour
                         gameObject.AddComponent<FixedJoint2D>().connectedBody = leftHit.rigidbody;
                         onRope = true;
                         currentRope = leftHit.collider.transform.parent.GetComponent<Rope>();
-                        source.clip = grabRopeSFX;
-                        source.Play();
+                        SFXHandler.PlaySound(grabRopeSFX);
                     }
                 } else {
                     if(upHit){
@@ -118,8 +111,7 @@ public class PlayerController : MonoBehaviour
                             gameObject.AddComponent<FixedJoint2D>().connectedBody = upHit.rigidbody;
                             onRope = true;
                             currentRope = upHit.collider.transform.parent.GetComponent<Rope>();
-                            source.clip = grabRopeSFX;
-                            source.Play();
+                            SFXHandler.PlaySound(grabRopeSFX);
                         }
                     }
                 }
@@ -131,8 +123,7 @@ public class PlayerController : MonoBehaviour
                 Destroy(gameObject.GetComponent<FixedJoint2D>());
                 onRope = false;
                 currentRope = null;
-                source.clip = releaseRopeSFX;
-                source.Play();
+                SFXHandler.PlaySound(releaseRopeSFX);
             }
         }
 
@@ -151,8 +142,7 @@ public class PlayerController : MonoBehaviour
                         GameObject newVFX = Instantiate(impactVFX, raycastHit.point, Quaternion.Euler(-90f, 0f, 0f));
                     }
                 }
-                source.clip = landSFX[Random.Range(0, landSFX.Count)];
-                source.Play();
+                SFXHandler.PlaySound(landSFX[Random.Range(0, landSFX.Count)]);
             }
 
             fellOff = false;
@@ -193,7 +183,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         if(!dead && canMove){
-            if(Input.GetKey(KeyCode.D)){
+            if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)){
                 if(onRope){
                     rigidBody.AddForce(Vector2.right * (movementSpeed/2f));
                 } else {
@@ -207,7 +197,7 @@ public class PlayerController : MonoBehaviour
                     }
                 }
             } else {
-                if(Input.GetKey(KeyCode.A)){
+                if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)){
                     if(onRope){
                         rigidBody.AddForce(Vector2.left * (movementSpeed/2f));
                     } else {
@@ -237,8 +227,7 @@ public class PlayerController : MonoBehaviour
                     if(GameObject.FindObjectOfType<GameController>()){
                         GameObject.FindObjectOfType<GameController>().Died();
                     }
-                    source.clip = deathSFX;
-                    source.Play();
+                    SFXHandler.PlaySound(deathSFX);
                     dead = true;
                 }
                 rigidBody.isKinematic = true;
@@ -260,8 +249,7 @@ public class PlayerController : MonoBehaviour
                     if(GameObject.FindObjectOfType<GameController>()){
                         GameObject.FindObjectOfType<GameController>().Died();
                     }
-                    source.clip = deathSFX;
-                    source.Play();
+                    SFXHandler.PlaySound(deathSFX);
                     dead = true;
                     canMove = false;
                 }
@@ -308,14 +296,12 @@ public class PlayerController : MonoBehaviour
 
         } else {
             // IN AIR
-            
-        }
-
-        if(Physics2D.Raycast(transform.position, Vector2.right, 1f, movementTraceMask)){
-            targetXVelo = 0;
-        }
-        if(Physics2D.Raycast(transform.position, Vector2.left, 1f, movementTraceMask)){
-            targetXVelo = 0;
+            if(Physics2D.Raycast(transform.position, Vector2.right, 1f, movementTraceMask)){
+                targetXVelo = 0;
+            }
+            if(Physics2D.Raycast(transform.position, Vector2.left, 1f, movementTraceMask)){
+                targetXVelo = 0;
+            }
         }
 
         if(!onRope && !dead){
@@ -334,14 +320,12 @@ public class PlayerController : MonoBehaviour
         if(collision.collider.transform.parent){
             if(!collision.collider.transform.parent.GetComponent<Rope>()){
                 if(!onGround){
-                    source.clip = collideSFX[Random.Range(0, collideSFX.Count)];
-                    source.Play();
+                    SFXHandler.PlaySound(collideSFX[Random.Range(0, collideSFX.Count)]);
                 }
             }
         } else {
             if(!onGround){
-                source.clip = collideSFX[Random.Range(0, collideSFX.Count)];
-                source.Play();
+                SFXHandler.PlaySound(collideSFX[Random.Range(0, collideSFX.Count)]);
             }
         }
     }

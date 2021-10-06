@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3890785474586903437}
   - component: {fileID: 3890785474586903435}
-  - component: {fileID: 1561574180433640838}
+  - component: {fileID: 8700197259910614907}
   m_Layer: 7
   m_Name: RopeSillouhette
   m_TagString: Untagged
@@ -130,7 +130,7 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
---- !u!114 &1561574180433640838
+--- !u!114 &8700197259910614907
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,10 +139,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3890785474586903434}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1417788123233f847a2db25b70394d71, type: 3}
+  m_Script: {fileID: 11500000, guid: a79172ed55314844885bd204d97cda96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 6768644218518477479}
+  target: {fileID: 2506938833173730155}
 --- !u!1 &6768644218518477473
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,9 +152,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6768644218518477478}
-  - component: {fileID: 6768644218518477479}
   - component: {fileID: 6768644218518477472}
   - component: {fileID: -7505538886893078275}
+  - component: {fileID: 2506938833173730155}
   m_Layer: 7
   m_Name: Rope
   m_TagString: Untagged
@@ -177,30 +177,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6768644218518477479
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6768644218518477473}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c412778aecd4d7d4bbdd6f0e011c73ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damaged: 0
-  amountOfJoints: 30
-  collisionRadius: 0.1
-  distanceBetween: 0.2
-  stretchDistance: 0.6
-  snapIndexRange: {x: 5, y: 20}
-  joints: []
-  lineRenderer: {fileID: 0}
-  snappedLineRenderer: {fileID: 0}
-  menuMouseFollower: {fileID: 0}
-  stretchClip: {fileID: 8300000, guid: 4232fcd81751997428ffe698c7424612, type: 3}
-  snapClip: {fileID: 8300000, guid: 9b28d7bad26d687469b65fafbbdff90e, type: 3}
 --- !u!120 &6768644218518477472
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -311,3 +287,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa11329cbd54ca54787d99b5ea8897f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2506938833173730155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6768644218518477473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19cc070148b99fc43b87eca0b55eac23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damaged: 0
+  amountOfJoints: 30
+  collisionRadius: 0.1
+  distanceBetween: 0.2
+  stretchDistance: 0.6
+  snapIndexRange: {x: 5, y: 20}
+  joints: []
+  lineRenderer: {fileID: 0}
+  snappedLineRenderer: {fileID: 0}
+  menuMouseFollower: {fileID: 0}
+  stretchClip: {fileID: 8300000, guid: 4232fcd81751997428ffe698c7424612, type: 3}
+  snapClip: {fileID: 8300000, guid: 9b28d7bad26d687469b65fafbbdff90e, type: 3}

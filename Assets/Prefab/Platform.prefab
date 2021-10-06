@@ -93,8 +93,8 @@ GameObject:
   - component: {fileID: 5698475708529245739}
   - component: {fileID: 5698475708529245736}
   - component: {fileID: 5698475708529245737}
-  - component: {fileID: 5698475708529245733}
   - component: {fileID: 4859788674415770355}
+  - component: {fileID: 2016426618653259619}
   m_Layer: 0
   m_Name: Platform
   m_TagString: Untagged
@@ -194,7 +194,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &5698475708529245733
+--- !u!114 &4859788674415770355
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -203,7 +203,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 5698475708529245742}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2a4332915eece34b902877805fadf98, type: 3}
+  m_Script: {fileID: 11500000, guid: ca59d1acec09eba4d937efbe784e5953, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invert: 0
+--- !u!114 &2016426618653259619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5698475708529245742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4afe74241791fae468560e37c66275d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damaged: 0
@@ -218,18 +231,5 @@ MonoBehaviour:
   startLoc: {x: 0, y: 0, z: 0}
   steppedOn: 0
   stutter: 0
-  fall: {fileID: 8300000, guid: 73151cf40e7d9de4eb6d48471b1f9b24, type: 3}
+  fallClip: {fileID: 8300000, guid: 73151cf40e7d9de4eb6d48471b1f9b24, type: 3}
   stutterClip: {fileID: 8300000, guid: ba5fabf9984634d4abb2c7f4f2921fbc, type: 3}
---- !u!114 &4859788674415770355
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5698475708529245742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca59d1acec09eba4d937efbe784e5953, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  invert: 0

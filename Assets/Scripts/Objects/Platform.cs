@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(AudioSource))]
 public class Platform : MonoBehaviour
 {   
     [Header("Settings")]
@@ -26,9 +25,8 @@ public class Platform : MonoBehaviour
 
     SpriteRenderer sRenderer;
 
-    public AudioClip fall;
+    public AudioClip fallClip;
     public AudioClip stutterClip;
-    AudioSource source;
 
     void Start()
     {
@@ -41,8 +39,6 @@ public class Platform : MonoBehaviour
         if(damaged){
             //sRenderer.color = new Color(1f, 0.75f, 0.75f);
         }
-
-        source = GetComponent<AudioSource>();
     }
 
     public void Reset(){
@@ -85,8 +81,7 @@ public class Platform : MonoBehaviour
     IEnumerator Stutter(){
         yield return new WaitForSeconds(0f);
         stutter = true;
-        source.clip = stutterClip;
-        source.Play();
+        SFXHandler.PlaySound(stutterClip);
     }
 
     IEnumerator Fall()
@@ -95,8 +90,7 @@ public class Platform : MonoBehaviour
         stutter = false;
         fallAnim = true;
         yield return new WaitForSeconds(0.8f);
-        source.clip = fall;
-        source.Play();
+        SFXHandler.PlaySound(fallClip);
         GetComponent<BoxCollider2D>().enabled = false;
     }
 }

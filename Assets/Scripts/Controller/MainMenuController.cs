@@ -29,7 +29,7 @@ public class MainMenuController : MonoBehaviour
 
     void Update(){
         if(cover){
-            gameCover.color = Color.Lerp(gameCover.color, new Color(gameCover.color.r, gameCover.color.g, gameCover.color.b, 1f), 5f * Time.deltaTime);
+            gameCover.color = Color.Lerp(gameCover.color, new Color(gameCover.color.r, gameCover.color.g, gameCover.color.b, 1f), 15f * Time.deltaTime);
         }
     }
 
@@ -53,7 +53,7 @@ public class MainMenuController : MonoBehaviour
 
     IEnumerator ChangeLevel(string sceneName){
         cover = true;
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene(sceneName);
     }
 }

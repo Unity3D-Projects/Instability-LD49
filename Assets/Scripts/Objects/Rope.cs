@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(LineRenderer))]
-[RequireComponent(typeof(AudioSource))]
 public class Rope : MonoBehaviour
 {
     public bool damaged;
@@ -36,16 +35,12 @@ public class Rope : MonoBehaviour
     bool frozen;
     bool started = false;
 
-    AudioSource source;
-
     public AudioClip stretchClip;
     public AudioClip snapClip;
 
     PlayerController player;
 
     void Start(){
-        source = GetComponent<AudioSource>();
-
         player = GameObject.FindObjectOfType<PlayerController>();
 
         snapIndex = Random.Range(snapIndexRange.x, snapIndexRange.y);
@@ -173,13 +168,11 @@ public class Rope : MonoBehaviour
     IEnumerator BreakAnimate(){
         yield return new WaitForSeconds(stretchTime);
         if(player.currentRope == this){
-            source.clip = stretchClip;
-            source.Play();
+            SFXHandler.PlaySound(stretchClip);
             Stretch();
             yield return new WaitForSeconds(snapTime);
             if(true){
-                source.clip = snapClip;
-                source.Play();
+                SFXHandler.PlaySound(snapClip);
                 Snap();
             }
         } else {
@@ -193,7 +186,7 @@ public class Rope : MonoBehaviour
         stretched = true;
     }
 
-    //[EasyButtons.Button]
+    [EasyButtons.Button]
     void Snap(){
         Vector3[] oldPositions = new Vector3[lineRenderer.positionCount];
         lineRenderer.GetPositions(oldPositions);

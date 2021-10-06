@@ -295,6 +295,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cd54eb4627717b4cb098075a1fa419d, type: 3}
+--- !u!114 &148181529 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2506938833173730155, guid: efcc37ec2c4e6474f8cbf7bcc063cc74, type: 3}
+  m_PrefabInstance: {fileID: 782019055}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19cc070148b99fc43b87eca0b55eac23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &156104996
 GameObject:
   m_ObjectHideFlags: 0
@@ -1577,6 +1588,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &662301951 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2016426618653259619, guid: 0cd54eb4627717b4cb098075a1fa419d, type: 3}
+  m_PrefabInstance: {fileID: 2012328642}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4afe74241791fae468560e37c66275d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &663660057
 GameObject:
   m_ObjectHideFlags: 0
@@ -1666,6 +1688,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2506938833173730155, guid: efcc37ec2c4e6474f8cbf7bcc063cc74, type: 3}
+      propertyPath: damaged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6768644218518477473, guid: efcc37ec2c4e6474f8cbf7bcc063cc74, type: 3}
       propertyPath: m_Name
       value: Rope (3)
@@ -2267,26 +2293,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1367476788 stripped
+--- !u!114 &1414862743 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5698475708529245733, guid: 0cd54eb4627717b4cb098075a1fa419d, type: 3}
-  m_PrefabInstance: {fileID: 2006722878}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2a4332915eece34b902877805fadf98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1415738857 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5698475708529245733, guid: 0cd54eb4627717b4cb098075a1fa419d, type: 3}
+  m_CorrespondingSourceObject: {fileID: 2016426618653259619, guid: 0cd54eb4627717b4cb098075a1fa419d, type: 3}
   m_PrefabInstance: {fileID: 1418979182}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2a4332915eece34b902877805fadf98, type: 3}
+  m_Script: {fileID: 11500000, guid: 4afe74241791fae468560e37c66275d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1418979182
@@ -2296,6 +2311,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2016426618653259619, guid: 0cd54eb4627717b4cb098075a1fa419d, type: 3}
+      propertyPath: damaged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5698475708529245733, guid: 0cd54eb4627717b4cb098075a1fa419d, type: 3}
       propertyPath: damaged
       value: 1
@@ -2533,17 +2552,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1554192961}
   m_CullTransparentMesh: 1
---- !u!114 &1625465709 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6768644218518477479, guid: efcc37ec2c4e6474f8cbf7bcc063cc74, type: 3}
-  m_PrefabInstance: {fileID: 782019055}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c412778aecd4d7d4bbdd6f0e011c73ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1656309786
 GameObject:
   m_ObjectHideFlags: 0
@@ -2882,11 +2890,11 @@ MonoBehaviour:
   - {fileID: 250402668}
   - {fileID: 2044751631}
   damagedPlatforms:
-  - {fileID: 1776146825}
-  - {fileID: 1367476788}
-  - {fileID: 1415738857}
+  - {fileID: 662301951}
+  - {fileID: 2065650858}
+  - {fileID: 1414862743}
   damagedRopes:
-  - {fileID: 1625465709}
+  - {fileID: 148181529}
   gameCover: {fileID: 2077014358}
   ropePrefab: {fileID: 6768644218518477473, guid: efcc37ec2c4e6474f8cbf7bcc063cc74, type: 3}
   chaserReturnPrevent: {fileID: 5698475710374204163}
@@ -3031,17 +3039,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cd54eb4627717b4cb098075a1fa419d, type: 3}
---- !u!114 &1776146825 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5698475708529245733, guid: 0cd54eb4627717b4cb098075a1fa419d, type: 3}
-  m_PrefabInstance: {fileID: 2012328642}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2a4332915eece34b902877805fadf98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1799582093
 GameObject:
   m_ObjectHideFlags: 0
@@ -3790,7 +3787,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1974415070}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42e44304de4e67c4b9f1b31c3768eb9d, type: 3}
+  m_Script: {fileID: 11500000, guid: 2834976654481b74d9cb8c45e5758ae0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   slowSpeed: 0
@@ -3857,6 +3854,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2016426618653259619, guid: 0cd54eb4627717b4cb098075a1fa419d, type: 3}
+      propertyPath: damaged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5698475708529245733, guid: 0cd54eb4627717b4cb098075a1fa419d, type: 3}
       propertyPath: damaged
       value: 1
@@ -3922,6 +3923,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2016426618653259619, guid: 0cd54eb4627717b4cb098075a1fa419d, type: 3}
+      propertyPath: damaged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5698475708529245733, guid: 0cd54eb4627717b4cb098075a1fa419d, type: 3}
       propertyPath: damaged
       value: 1
@@ -4067,6 +4072,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2065650858 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2016426618653259619, guid: 0cd54eb4627717b4cb098075a1fa419d, type: 3}
+  m_PrefabInstance: {fileID: 2006722878}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4afe74241791fae468560e37c66275d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2077014355
 GameObject:
   m_ObjectHideFlags: 0

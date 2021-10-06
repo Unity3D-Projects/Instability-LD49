@@ -26,6 +26,8 @@ public class DeathMenuController : MonoBehaviour
 
     bool cover;
 
+    bool transitioning;
+
     void Start(){
         dataStorage = GameObject.FindObjectOfType<DataStorage>();
 
@@ -40,45 +42,55 @@ public class DeathMenuController : MonoBehaviour
 
     void Update(){
         if(showRetryButton){
-            retryButton.localPosition = new Vector3(Mathf.Lerp(retryButton.localPosition.x, 743.3038f, 2f * Time.deltaTime), retryButton.localPosition.y, retryButton.localPosition.z);
+            retryButton.localPosition = new Vector3(Mathf.Lerp(retryButton.localPosition.x, 743.3038f, 4f * Time.deltaTime), retryButton.localPosition.y, retryButton.localPosition.z);
         }
         if(showMenuButton){
-            menuButton.localPosition = new Vector3(Mathf.Lerp(menuButton.localPosition.x, 743.3038f, 2f * Time.deltaTime), menuButton.localPosition.y, menuButton.localPosition.z);
+            menuButton.localPosition = new Vector3(Mathf.Lerp(menuButton.localPosition.x, 743.3038f, 4f * Time.deltaTime), menuButton.localPosition.y, menuButton.localPosition.z);
         }
         if(cover){
-            gameCover.color = Color.Lerp(gameCover.color, new Color(gameCover.color.r, gameCover.color.g, gameCover.color.b, 1f), 5f * Time.deltaTime);
+            gameCover.color = Color.Lerp(gameCover.color, new Color(gameCover.color.r, gameCover.color.g, gameCover.color.b, 1f), 15f * Time.deltaTime);
+        }
+
+        if(Input.GetKeyDown(KeyCode.Space)){
+            Restart();
         }
     }
 
     IEnumerator ButtonsShow(){
-        yield return new WaitForSeconds(1.6f);
+        yield return new WaitForSeconds(0.3f);
         showMenuButton = true;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.1f);
         showRetryButton = true;
     }
 
     IEnumerator NewHighscoreCheck(){
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.35f);
         if(dataStorage.prevGameScore == dataStorage.highscore){
             newHighscore.blink = true;
         }
     }
 
     public void Restart(){
-        StartCoroutine(ChangeLevel("Game"));
-        source.clip = selectClip;
-        source.Play();
+        if(!transitioning){
+            StartCoroutine(ChangeLevel("Game"));
+            source.clip = selectClip;
+            source.Play();
+            transitioning = true;
+        }
     }
 
     public void ReturnToMenu(){
-        StartCoroutine(ChangeLevel("Menu"));
-        source.clip = selectClip;
-        source.Play();
+        if(!transitioning){
+            StartCoroutine(ChangeLevel("Menu"));
+            source.clip = selectClip;
+            source.Play();
+            transitioning = true;
+        }
     }
 
     IEnumerator ChangeLevel(string sceneName){
         cover = true;
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene(sceneName);
     }
 }

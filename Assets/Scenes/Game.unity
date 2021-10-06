@@ -757,7 +757,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 596380544}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.9244, y: 0.33014336, z: 0.54000044}
+  m_LocalPosition: {x: 0.6433, y: 0.33014336, z: 0.54000044}
   m_LocalScale: {x: 0.0021002537, y: 0.018762788, z: 1}
   m_Children: []
   m_Father: {fileID: 1974415072}
@@ -836,11 +836,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 596380544}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4b4bcd5a7f2678488fb38cd9ec819d5, type: 3}
+  m_Script: {fileID: 11500000, guid: 35d1b7fe81e76de42b33ffe9095499f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaser: {fileID: 1974415073}
-  lineStart: {x: -7.3380013, y: 3.9200006, z: -4.0499997}
+  chaser: {fileID: 1974415075}
+  lineStart: {x: -7.401001, y: 3.9200006, z: -4.0499997}
 --- !u!1 &629056233
 GameObject:
   m_ObjectHideFlags: 0
@@ -1813,8 +1813,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1974415072}
   - component: {fileID: 1974415071}
-  - component: {fileID: 1974415073}
   - component: {fileID: 1974415074}
+  - component: {fileID: 1974415075}
   m_Layer: 0
   m_Name: Chaser
   m_TagString: Untagged
@@ -1890,25 +1890,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1974415073
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1974415070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42e44304de4e67c4b9f1b31c3768eb9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slowSpeed: 3
-  fastSpeed: 7
-  speed: 0
-  interpSpeed: 1
-  move: 0
-  fastSpeedIncreaseAmount: 0.01
-  targetSpeed: 0
 --- !u!331 &1974415074
 SpriteMask:
   m_ObjectHideFlags: 0
@@ -1959,6 +1940,25 @@ SpriteMask:
   m_BackSortingOrder: 0
   m_IsCustomRangeActive: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1974415075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974415070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2834976654481b74d9cb8c45e5758ae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slowSpeed: 3
+  fastSpeed: 7
+  speed: 0
+  interpSpeed: 1
+  move: 0
+  fastSpeedIncreaseAmount: 0.001
+  targetSpeed: 0
 --- !u!1 &2077014355
 GameObject:
   m_ObjectHideFlags: 0
@@ -2296,7 +2296,7 @@ PrefabInstance:
     - target: {fileID: 2236750061743032432, guid: ec315c53f319d5847bab9c584e15f9a5, type: 3}
       propertyPath: chaser
       value: 
-      objectReference: {fileID: 1974415073}
+      objectReference: {fileID: 1974415075}
     - target: {fileID: 2236750061743032433, guid: ec315c53f319d5847bab9c584e15f9a5, type: 3}
       propertyPath: m_RootOrder
       value: 3
